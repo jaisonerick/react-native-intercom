@@ -134,6 +134,13 @@ public class IntercomModule extends ReactContextBaseJavaModule {
         callback.invoke(null, null);
     }
 
+    @ReactMethod
+    public void setupGCM(String token, Callback callback) {
+        Intercom.client().setupGCM(token, 0);
+        Log.i(TAG, "setupGCM");
+        callback.invoke(null, null);
+     }
+
     private Map<String, Object> recursivelyDeconstructReadableMap(ReadableMap readableMap) {
         ReadableMapKeySetIterator iterator = readableMap.keySetIterator();
         Map<String, Object> deconstructedMap = new HashMap<>();
